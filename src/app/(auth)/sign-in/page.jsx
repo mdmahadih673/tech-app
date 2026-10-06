@@ -29,6 +29,13 @@ export default function Basic() {
         }
     };
 
+    const hendelGithubSignIn = async () => {
+        const resData = await signIn.social({
+            provider: "github"
+        })
+
+    }
+
     const onSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -162,11 +169,17 @@ export default function Basic() {
                         <span className="h-px flex-1 bg-white/10" />
                     </div>
                     <div className="flex w-full max-w-xs flex-col gap-3">
-                        <Button onClick={hendelGoogleSignIn} className="w-full" variant="tertiary">
+                        <Button
+                            onClick={hendelGoogleSignIn}
+                            className="w-full"
+                            variant="tertiary">
                             <span className="text-base font-semibold">G</span>
                             Sign in with Google
                         </Button>
-                        <Button className="w-full" variant="tertiary">
+                        <Button
+                            onClick={hendelGithubSignIn}
+                            className="w-full"
+                            variant="tertiary">
                             <span className="text-base font-semibold">⌂</span>
                             Sign in with GitHub
                         </Button>
