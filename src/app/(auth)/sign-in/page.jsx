@@ -1,6 +1,7 @@
 
 "use client";
 
+import { useRouter } from "next/navigation";
 import { signIn } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {
@@ -16,6 +17,18 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 
 export default function Basic() {
+    const router = useRouter();
+
+    const hendelGoogleSignIn = async () => {
+        const resData = await signIn.social({
+            provider: "google"
+        });
+
+        if (resData?.data) {
+            router.push("/");
+        }
+    };
+
     const onSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -26,15 +39,14 @@ export default function Basic() {
             password: data.password,
             rememberMe: true,
             callbackURL: "/"
-        })
+        });
 
         if (resData) {
-            toast.success(` সাইন আপ সফল হয়েছে`);
-            router.push("/sign-in");
+            toast.success("সাইন আপ সফল হয়েছে");
+            router.push("/");
         } else {
-            toast.error(error.message)
+            toast.error(error?.message || "Sign in failed");
         }
-
     };
 
     return (
@@ -142,6 +154,24 @@ export default function Basic() {
                             Reset
                         </Button>
                     </div>
+
+
+                    <div className="flex items-center gap-3 text-xs uppercase tracking-wider text-slate-500">
+                        <span className="h-px flex-1 bg-white/10" />
+                        or continue with
+                        <span className="h-px flex-1 bg-white/10" />
+                    </div>
+                    <div className="flex w-full max-w-xs flex-col gap-3">
+                        <Button onClick={hendelGoogleSignIn} className="w-full" variant="tertiary">
+                            <span className="text-base font-semibold">G</span>
+                            Sign in with Google
+                        </Button>
+                        <Button className="w-full" variant="tertiary">
+                            <span className="text-base font-semibold">⌂</span>
+                            Sign in with GitHub
+                        </Button>
+                    </div>
+
                 </Form>
 
                 {/* Footer */}
