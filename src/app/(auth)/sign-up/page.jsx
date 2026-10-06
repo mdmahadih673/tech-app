@@ -13,6 +13,30 @@ import { Check } from "@gravity-ui/icons";
 import { signUp } from "@/lib/auth-client";
 
 export default function Basic() {
+
+
+    const hendelGoogleSignIn = async () => {
+        const resData = await signIn.social({
+            provider: "google"
+        });
+
+        if (resData?.data) {
+            router.push("/");
+        }
+    };
+
+    const hendelGithubSignIn = async () => {
+        const resData = await signIn.social({
+            provider: "github"
+        })
+
+        if (resData?.data) {
+            router.push('/')
+        }
+
+    }
+
+
     const onSubmit = async (e) => {
         e.preventDefault();
 
@@ -183,6 +207,37 @@ export default function Basic() {
                         <FieldError className="mt-1 text-sm text-red-600" />
                     </TextField>
 
+                    <div className="flex w-full flex-col gap-3">
+                        <Button
+                            type="button"
+                            onClick={hendelGoogleSignIn}
+                            className="h-12 w-full justify-center gap-3 rounded-xl border border-gray-200 bg-white px-4 text-sm font-semibold text-gray-700 shadow-sm transition-all hover:border-gray-300 hover:bg-gray-50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 active:scale-[0.99]"
+                            variant="tertiary"
+                        >
+                            <span
+                                aria-hidden="true"
+                                className="flex size-7 items-center justify-center rounded-full border border-gray-100 bg-white text-lg font-bold text-[#4285F4]"
+                            >
+                                G
+                            </span>
+                            Sign in with Google
+                        </Button>
+                        <Button
+                            type="button"
+                            onClick={hendelGithubSignIn}
+                            className="h-12 w-full justify-center gap-3 rounded-xl border border-gray-200 bg-white px-4 text-sm font-semibold text-gray-700 shadow-sm transition-all hover:border-gray-300 hover:bg-gray-50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 active:scale-[0.99]"
+                            variant="tertiary"
+                        >
+                            <span
+                                aria-hidden="true"
+                                className="flex size-7 items-center justify-center rounded-full bg-gray-900 text-xs font-bold text-white"
+                            >
+                                GH
+                            </span>
+                            Sign in with GitHub
+                        </Button>
+                    </div>
+
                     {/* Submit */}
                     <Button
                         type="submit"
@@ -207,4 +262,3 @@ export default function Basic() {
         </div>
     );
 }
-

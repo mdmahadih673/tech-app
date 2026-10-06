@@ -34,6 +34,10 @@ export default function Basic() {
             provider: "github"
         })
 
+        if (resData?.data) {
+            router.push('/')
+        }
+
     }
 
     const onSubmit = async (e) => {
@@ -168,19 +172,35 @@ export default function Basic() {
                         or continue with
                         <span className="h-px flex-1 bg-white/10" />
                     </div>
-                    <div className="flex w-full max-w-xs flex-col gap-3">
+
+
+                    <div className="flex w-full flex-col gap-3">
                         <Button
+                            type="button"
                             onClick={hendelGoogleSignIn}
-                            className="w-full"
-                            variant="tertiary">
-                            <span className="text-base font-semibold">G</span>
+                            className="h-12 w-full justify-center gap-3 rounded-xl border border-gray-200 bg-white px-4 text-sm font-semibold text-gray-700 shadow-sm transition-all hover:border-gray-300 hover:bg-gray-50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 active:scale-[0.99]"
+                            variant="tertiary"
+                        >
+                            <span
+                                aria-hidden="true"
+                                className="flex size-7 items-center justify-center rounded-full border border-gray-100 bg-white text-lg font-bold text-[#4285F4]"
+                            >
+                                G
+                            </span>
                             Sign in with Google
                         </Button>
                         <Button
+                            type="button"
                             onClick={hendelGithubSignIn}
-                            className="w-full"
-                            variant="tertiary">
-                            <span className="text-base font-semibold">⌂</span>
+                            className="h-12 w-full justify-center gap-3 rounded-xl border border-gray-200 bg-white px-4 text-sm font-semibold text-gray-700 shadow-sm transition-all hover:border-gray-300 hover:bg-gray-50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 active:scale-[0.99]"
+                            variant="tertiary"
+                        >
+                            <span
+                                aria-hidden="true"
+                                className="flex size-7 items-center justify-center rounded-full bg-gray-900 text-xs font-bold text-white"
+                            >
+                                GH
+                            </span>
                             Sign in with GitHub
                         </Button>
                     </div>

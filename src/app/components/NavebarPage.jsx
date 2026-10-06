@@ -10,7 +10,7 @@ const NavebarPage = () => {
 
     if (isPending) {
         return (
-            <nav className="border-b bg-white">
+            <nav className="sticky top-0 z-50 border-b bg-white">
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
                     <div className="text-2xl font-bold">
                         Tech<span className="text-red-600">World</span>
@@ -57,7 +57,7 @@ const NavebarPage = () => {
     </>
 
     return (
-        <nav className="border-b border-gray-200 bg-white">
+        <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
 
                 {/* Logo */}
@@ -78,4 +78,3 @@ const NavebarPage = () => {
 };
 
 export default NavebarPage;
-
