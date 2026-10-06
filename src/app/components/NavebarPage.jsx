@@ -13,7 +13,7 @@ const NavebarPage = () => {
             <nav className="border-b bg-white">
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
                     <div className="text-2xl font-bold">
-                        Bangla<span className="text-red-600">News</span>
+                        Tech<span className="text-red-600">World</span>
                     </div>
 
                     <div className="h-10 w-10 animate-pulse rounded-full bg-gray-200" />
