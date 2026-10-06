@@ -71,20 +71,6 @@ const ProfilePage = () => {
 
                     </div>
 
-                    {/* Divider */}
-                    <div className="my-7 h-px bg-gray-800" />
-
-                    {/* About */}
-                    <div>
-                        <h2 className="mb-3 text-xl font-semibold">
-                            About Me
-                        </h2>
-
-                        <p className="leading-7 text-gray-400">
-                            {user.bio ||
-                                "No bio added yet. Edit your profile to add a bio."}
-                        </p>
-                    </div>
 
                     {/* Divider */}
                     <div className="my-7 h-px bg-gray-800" />
